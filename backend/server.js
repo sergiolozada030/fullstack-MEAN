@@ -1,9 +1,12 @@
 import exprees from "express";
 import dotenv from "dotenv";
 import { connetDB } from "./config/db.js";
+import router from "./routes/routes.js";
 
 const app = exprees();
 dotenv.config();
+app.use(exprees.json());
+app.use("/api/products", router);
 
 app.get("/", (req, res) => {
   res.send("Hola Mundo");
