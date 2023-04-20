@@ -4,12 +4,12 @@
   align-items: center;
 
   .container-form {
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 360px;
     .container-input {
       display: flex;
       flex-direction: column;
       &__label {
+        padding-top: 6px;
         padding-bottom: 6px;
       }
     }

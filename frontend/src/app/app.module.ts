@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './pages/home/home.component';
@@ -20,7 +22,12 @@ import { HeaderComponent } from './shared/components/header/header.component';
     EditProductComponent,
     HeaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, PrimengModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    PrimengModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

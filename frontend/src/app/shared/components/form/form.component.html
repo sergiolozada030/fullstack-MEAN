@@ -1,21 +1,21 @@
 <section class="section-form">
   <h2>Registrar Producto</h2>
-  <form action="" class="container-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="container-form">
     <div class="container-input">
       <label class="container-input__label" for="nombreProducto"
         >Nombre del producto:</label
       >
-      <input type="text" pInputText />
+      <input type="text" formControlName="producto" pInputText />
     </div>
     <div class="container-input">
       <label class="container-input__label" for="nombreProducto"
         >Inventario:</label
       >
-      <input type="number" pInputText />
+      <input type="number" formControlName="stock" pInputText />
     </div>
     <div class="container-input">
       <label class="container-input__label" for="nombreProducto">Precio:</label>
-      <input type="number" pInputText />
+      <input type="number" formControlName="precio" pInputText />
     </div>
     <div class="container-input">
       <button
