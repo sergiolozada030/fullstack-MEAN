@@ -2,9 +2,11 @@ import exprees from "express";
 import dotenv from "dotenv";
 import { connetDB } from "./config/db.js";
 import router from "./routes/routes.js";
+import cors from "cors";
 
 const app = exprees();
 dotenv.config();
+app.use(cors());
 app.use(exprees.json());
 app.use("/api/products", router);
 
