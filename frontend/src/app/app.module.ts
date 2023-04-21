@@ -12,6 +12,7 @@ import { FormComponent } from './shared/components/form/form.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { TableComponent } from './pages/components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
     CreateProductComponent,
     EditProductComponent,
     HeaderComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,

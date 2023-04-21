@@ -1,0 +1,28 @@
+<div class="table">
+  <p-table [value]="products" [tableStyle]="{ 'min-width': '7rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th id="product">Producto</th>
+        <th id="stock">Stock</th>
+        <th id="precio">Precio</th>
+        <th id="edit">Editar</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.code }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-plus"
+            (click)="selectProduct(product)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

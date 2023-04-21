@@ -1,0 +1,16 @@
+.home {
+  padding-top: 2.5rem;
+
+  .container-btn {
+    padding-bottom: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}
+
+@media (min-width: 760px) {
+  .container-btn {
+    padding-left: 0 !important;
+    width: 80%;
+    margin: auto;
+  }
+}
