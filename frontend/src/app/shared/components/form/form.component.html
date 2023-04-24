@@ -5,7 +5,7 @@
       <label class="container-input__label" for="nombreProducto"
         >Nombre del producto:</label
       >
-      <input type="text" formControlName="producto" pInputText />
+      <input type="text" formControlName="product" pInputText />
     </div>
     <div class="container-input">
       <label class="container-input__label" for="nombreProducto"
@@ -15,10 +15,11 @@
     </div>
     <div class="container-input">
       <label class="container-input__label" for="nombreProducto">Precio:</label>
-      <input type="number" formControlName="precio" pInputText />
+      <input type="number" formControlName="price" pInputText />
     </div>
     <div class="container-input">
       <button
+        [disabled]="this.form.invalid"
         pButton
         pRipple
         label="Submit"

@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,18 +8,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent {
+  @Input() formEdit: any;
+  @Output() formCreate: EventEmitter<any> = new EventEmitter();
   public form: FormGroup;
 
   constructor(private location: Location) {
     this.form = new FormGroup({
-      producto: new FormControl('', [Validators.required]),
-      precio: new FormControl('', [Validators.required]),
+      product: new FormControl('', [Validators.required]),
+      price: new FormControl('', [Validators.required]),
       stock: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    if (this.form.invalid) {
+      return;
+    }
+    this.formCreate.emit(this.form.value);
   }
 
   onCancel() {
