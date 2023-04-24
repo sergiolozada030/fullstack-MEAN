@@ -3,6 +3,6 @@ export interface Product {
   description: string;
   stock: number;
   price: number;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }

@@ -12,7 +12,7 @@ export class ProductsService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<any> {
+  getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl + '/api/products');
   }
 }
