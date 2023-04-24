@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class FormComponent {
   public form: FormGroup;
 
-  constructor() {
+  constructor(private location: Location) {
     this.form = new FormGroup({
       producto: new FormControl('', [Validators.required]),
       precio: new FormControl('', [Validators.required]),
@@ -19,5 +20,9 @@ export class FormComponent {
 
   onSubmit() {
     console.log(this.form.value);
+  }
+
+  onCancel() {
+    this.location.back();
   }
 }
