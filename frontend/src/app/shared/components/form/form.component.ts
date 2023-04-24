@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,24 +7,36 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
   @Input() formEdit: any;
-  @Output() formCreate: EventEmitter<any> = new EventEmitter();
+  @Output() formEvent: EventEmitter<any> = new EventEmitter();
+
   public form: FormGroup;
 
   constructor(private location: Location) {
     this.form = new FormGroup({
-      product: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
       price: new FormControl('', [Validators.required]),
       stock: new FormControl('', [Validators.required]),
     });
+  }
+
+  ngOnInit(): void {
+    if (this.formEdit) {
+      this.loadDataEdit();
+    }
+  }
+
+  loadDataEdit() {
+    this.form.patchValue(this.formEdit);
   }
 
   onSubmit() {
     if (this.form.invalid) {
       return;
     }
-    this.formCreate.emit(this.form.value);
+
+    this.formEvent.emit(this.form.value);
   }
 
   onCancel() {

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../interfaces/products.interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -9,7 +10,13 @@ import { Product } from '../../interfaces/products.interfaces';
 export class TableComponent {
   @Input() products: Product[] = [];
 
-  selectProduct(product: Product) {
-    console.log(product);
+  constructor(private router: Router) {}
+
+  deleteProduct(product: Product) {
+    console.log('Eliminar este producto => ', product);
+  }
+
+  editProduct(product: Product) {
+    this.router.navigate(['/edit'], { state: product });
   }
 }

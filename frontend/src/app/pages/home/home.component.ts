@@ -18,11 +18,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.productService.getProducts().subscribe((products) => {
       this.dataProducts = products;
-      console.log(this.dataProducts);
     });
   }
 
-  crearProcduct() {
+  crearProduct() {
     this.router.navigateByUrl('create');
   }
 }

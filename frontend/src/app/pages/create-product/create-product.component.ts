@@ -14,9 +14,8 @@ export class CreateProductComponent {
   ) {}
 
   createProduct(product: any) {
-    const data = { ...product, description: product.product };
     // Create Product
-    this.productService.createProduct(data).subscribe((resp) => {
+    this.productService.createProduct(product).subscribe((resp) => {
       this.location.back();
     });
   }
