@@ -3,8 +3,11 @@
     <p-button
       label="Crear Producto"
       styleClass="p-button-raised p-button-text p-button-secondary "
-      (onClick)="crearProduct()"
+      (onClick)="createProduct()"
     ></p-button>
   </div>
-  <app-table [products]="dataProducts"></app-table>
+  <app-table
+    [products]="dataProducts"
+    (optionEvent)="deleteProduct($event)"
+  ></app-table>
 </section>

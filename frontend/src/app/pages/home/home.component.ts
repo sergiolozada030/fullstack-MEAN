@@ -16,12 +16,23 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.listProduct();
+  }
+
+  listProduct() {
     this.productService.getProducts().subscribe((products) => {
       this.dataProducts = products;
     });
   }
 
-  crearProduct() {
+  createProduct() {
     this.router.navigateByUrl('create');
+  }
+
+  deleteProduct(id: string) {
+    this.productService.deleteProduct(id).subscribe((resp) => {
+      console.log('Eliminar este producto => ', resp);
+      this.listProduct();
+    });
   }
 }

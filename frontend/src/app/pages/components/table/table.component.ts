@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../interfaces/products.interfaces';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 })
 export class TableComponent {
   @Input() products: Product[] = [];
+  @Output() optionEvent: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router) {}
 
-  deleteProduct(product: Product) {
-    console.log('Eliminar este producto => ', product);
+  deleteProduct(id: string) {
+    this.optionEvent.emit(id);
   }
 
   editProduct(product: Product) {

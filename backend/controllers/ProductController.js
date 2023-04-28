@@ -39,7 +39,9 @@ export const updateProduct = async (req, res) => {
     const product = await ProductModel.findOneAndUpdate({ _id: id }, req.body, {
       new: true,
     });
-    res.status(200).json(product);
+    res
+      .status(200)
+      .json({ message: "Producto actualizado con exito", product });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
