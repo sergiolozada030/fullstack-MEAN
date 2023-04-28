@@ -14,6 +14,8 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { TableComponent } from './pages/components/table/table.component';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,9 @@ import { TableComponent } from './pages/components/table/table.component';
     PrimengModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [ConfirmationService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
